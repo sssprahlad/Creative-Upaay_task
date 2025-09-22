@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, Search, Calendar, Bell, Share2, Filter, Plus, MoreHorizontal, MessageCircle, Paperclip, Users } from 'lucide-react';
 import './Home.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { byPrefixAndName } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const API_BASE_URL = 'http://localhost:5000/api';
@@ -369,6 +368,7 @@ const Dashboard = () => {
   useEffect(() => {
     loadTasks();
     loadStats();
+    setFilters({});
   }, [filters]);
   
   const loadTasks = async () => {
@@ -464,19 +464,19 @@ const Dashboard = () => {
         
         <nav className="sidebar-nav">
           <div className="nav-section">
-            <a href="#" className="nav-item">
+            <a href="http://localhost:3000" className="nav-item">
               <div className="nav-icon"></div>
               <span>Home</span>
             </a>
-            <a href="#" className="nav-item">
+            <a href="http://localhost:3000/messages" className="nav-item">
               <MessageCircle className="icon-medium" />
               <span>Messages</span>
             </a>
-            <a href="#" className="nav-item nav-item-active">
+            <a href="http://localhost:3000/tasks" className="nav-item nav-item-active">
               <div className="nav-icon nav-icon-active"></div>
               <span>Tasks</span>
             </a>
-            <a href="#" className="nav-item">
+            <a href="http://localhost:3000/members" className="nav-item">
               <Users className="icon-medium" />
               <span>Members</span>
             </a>
@@ -490,7 +490,7 @@ const Dashboard = () => {
               {projects.map((project, index) => (
                 <a 
                   key={index}
-                  href="#" 
+                  href="http://localhost:3000/projects" 
                   className={`project-item ${project.active ? 'project-item-active' : ''}`}
                 >
                   <div className="project-info-row">
