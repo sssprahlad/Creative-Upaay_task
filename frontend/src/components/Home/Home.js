@@ -383,6 +383,7 @@ const Dashboard = () => {
     }
   };
   
+  
   const loadStats = async () => {
     try {
       const data = await api.getStats();
